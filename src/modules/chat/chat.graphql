@@ -1,0 +1,31 @@
+type ChatMessage {
+  id: String!
+  message: String!
+  sender: User!
+  receiver: User!
+  createdAt: Date!
+  updatedAt: Date!
+}
+
+input AddChatMessageInput {
+  message: String!
+  receiverId: String!
+}
+
+input ChatQueryInput {
+  chatUserId: String!
+  pageNo: Int!
+  limit: Int
+}
+
+type Mutation {
+  addMessage(input: AddChatMessageInput!): ChatMessage
+}
+
+type Query {
+  chats(input: ChatQueryInput): [ChatMessage]
+}
+
+type Subscription {
+  chat(receiverId: String): ChatMessage
+}

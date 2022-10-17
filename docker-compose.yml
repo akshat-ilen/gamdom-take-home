@@ -1,0 +1,11 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    platform: linux/amd64
+    container_name: gamdom-db
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_DB=gamdom
+    ports:
+      - '5432:5432'

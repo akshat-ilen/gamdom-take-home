@@ -1,0 +1,32 @@
+scalar Date
+
+type User {
+  id: String!
+  username: String!
+  createdAt: Date!
+  updatedAt: Date!
+}
+
+type Session {
+  token: String!
+}
+
+type Login {
+  user: User!
+  session: Session!
+}
+
+type Message {
+  message: String!
+}
+
+input AuthInput {
+  username: String!
+  password: String!
+}
+
+type Mutation {
+  signUp(input: AuthInput!): Login
+  signIn(input: AuthInput!): Login
+  logout: Message!
+}
